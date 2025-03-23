@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Library app</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <p>My Library</p>
+            <button>Add New Book</button>
+        </nav>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Reading Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <dialog class="newBook">
+        <h2>Add a new book</h2>
+        <form class="bookForm" method="dialog">
+            <div>
+                <label for="title">Title</label><br>
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="author">Author</label><br>
+                <input type="text" name="author" id="author">
+            </div>
+            <div>
+                <label for="pages">Number of Pages</label><br>
+                <input type="number" name="pages" id="pages" min="1">
+            </div>
+            <div>
+                <p>Reading Status:</p>
+                <input type="radio" name="status" id="unread" value="Unread">
+                <label for="unread">Unread</label>
+                <input type="radio" name="status" id="reading" value="Reading">
+                <label for="reading">Reading</label>
+                <input type="radio" name="status" id="read" value="Read">
+                <label for="status">Read</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </dialog>
+
+    <dialog class="edit">
+        <h2>Change Reading Status</h2>
+        <form id="editForm" method="dialog">
+            <div>
+                <p>Reading Status:</p>
+                <input type="radio" name="editStatus" id="editUnread" value="Unread">
+                <label for="unread">Unread</label>
+                <input type="radio" name="editStatus" id="editReading" value="Reading">
+                <label for="reading">Reading</label>
+                <input type="radio" name="editStatus" id="editRead" value="Read">
+                <label for="status">Read</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </dialog>
+</body>
+</html>

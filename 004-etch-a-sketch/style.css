@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(49, 49, 49);
+    color: rgb(12, 12, 12);
+}
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding: 16px;
+}
+
+
+#btns {
+    display: flex;
+    justify-content: center;
+}
+
+
+button {
+    background-color: rgb(98, 103, 109);
+    color: rgb(224, 224, 224);
+    border: none;
+    border-radius: 4px;
+    font-size: 14pt;
+    font-weight: bold;
+    width: 290px;
+    height: 40px;
+    margin: 8px 10px;
+}
+
+button:hover {
+    background-color: rgb(80, 142, 199);
+}
+
+
+#grid-container {    
+    display: flex;
+    width: 600px;
+    height: 600px;
+}
+
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+
+.cell {
+    background-color: white;
+    border: 1px solid rgb(100, 100, 100);
+    display: flex;
+    flex: 1;
+}
+
+
+#instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
