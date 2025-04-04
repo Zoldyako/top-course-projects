@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer type="module" src="index.js"></script>
+        <title>Your To-Do App!</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="categories-container">
+                    <div class="categories">
+                        <p>All</p>
+                        <p>Due Today</p>
+                    </div>
+
+                    <div class="projects">
+                        <p>Project one</p>
+                        <p>Project two</p>
+                    </div>
+                </div>
+                <div class="projects-actions">
+                    <button class="new-project">New Project</button>
+                    <button class="clear-projects">Delete All</button>
+                </div>
+            </div>
+
+            <div class="projects-container">
+                <div class="projects-section"></div>
+            </div>
+        </div>
+        <dialog id="modal" class="new-project-btn">
+            <form class="project-form" method="dialog">
+                <h4>New Project</h4>
+                <div>
+                    <label for="title">Project Title</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div>
+                    <label for="desc">Project description</label>
+                    <textarea name="desc" id="desc" rows="3" cols="25"></textarea>
+                </div>
+                <div>
+                    <label for="date">Due date</label>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div class="priority-container">
+                    <label for="priority">Priority:</label>
+                    <select name="priority" id="priority">
+                        <option value="" disabled selected>Select a priority</option>
+                        <option value="unset">Unset</option>
+                        <option value="high">high</option>
+                        <option value="medium">medium</option>
+                        <option value="low">low</option>
+                    </select>
+                </div>
+                <div class="status-container">
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="" disabled selected>Select a status</option>
+                        <option value="unset">Unset</option>
+                        <option value="toStart">To start</option>
+                        <option value="started">Started</option>
+                        <option value="paused">Paused</option>
+                        <option value="finished">Finished</option>
+                    </select>
+                </div>
+                <input type="submit" id="submit-project">
+            </form>
+            <button id="close-modal">Close</button>
+        </dialog>
+        <dialog id="modal" class="new-task-btn">
+            <form class="task-form" method="dialog">
+                <div>
+                    <label for="task-desc">Task:</label>
+                    <input type="text" id="task-desc" name="task-desc">
+                </div>
+                <input type="submit" id="submit-task">
+                <button id="close-modal">Close</button>
+            </form>
+        </dialog>
+    </body>
+</html>
