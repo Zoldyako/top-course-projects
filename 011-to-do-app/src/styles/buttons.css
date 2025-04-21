@@ -18,11 +18,8 @@ input[type="submit"] {
 }
 
 .delete-btn {
-    background-color: unset;
-    padding: 0;
-
-    &:hover {
-        color: red;
-        background-color: unset;
-    }
+    color: #2c2c2f;
+    background-color: #9898a2;
+    border-radius: 100%;
+    padding: 4px 8px;
 }

@@ -14,6 +14,7 @@ const deleteAll = document.querySelector(".clear-projects");
 const closeModalProjectBtn = document.querySelector("#close-modal-project");
 const closeModalTaskBtn = document.querySelector("#close-modal-task");
 const projectForm = document.querySelector(".project-form");
+const submitTask = document.querySelector("#submit-task");
 const taskForm = document.querySelector(".task-form");
 const defaultProjectBtn = document.querySelector(".default-projects");
 
@@ -33,6 +34,7 @@ deleteAll.addEventListener("click", () => {
 
 submitProject.addEventListener("click", () => {
   createNewProject();
+  projectForm.reset();
   renderProjects();
 });
 

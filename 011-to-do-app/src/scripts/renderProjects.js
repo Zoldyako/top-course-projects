@@ -5,6 +5,7 @@ function createProjectDiv(id, project) {
   project = JSON.parse(project);
 
   const projectDiv = document.createElement("div");
+  const projectSubDiv = document.createElement("div");
   const title = document.createElement("h4");
   const desc = document.createElement("p");
   const dueDate = document.createElement("p");
@@ -31,7 +32,8 @@ function createProjectDiv(id, project) {
 
   tasks.appendChild(newTaskBtn);
 
-  projectDiv.append(title, desc, dueDate, priority, tasks);
+  projectSubDiv.append(desc, dueDate, priority, tasks);
+  projectDiv.append(title, projectSubDiv);
 
   return projectDiv;
 }

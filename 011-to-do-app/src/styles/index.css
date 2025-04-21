@@ -52,20 +52,32 @@ body {
 */
 
 .projects-container {
-    padding: 0 64px;
+    display: flex;
+    justify-content: center;
+    padding: 32px 64px;
     width: 100%;
     overflow-y: auto;
 }
 
 .projects-section {
-    width: clamp(250px, 800px, 1000px);
+    width: clamp(250px, 100%, 800px);
+    height: 130vh;
 }
 
 .project {
-    & h4 {
+    margin: 36px 0;
+
+    h4 {
         font-size: 1.5rem;
-        padding: 12px 0;
-        border-bottom: 1px solid #707075;
+        margin: 12px 4px;
+    }
+
+    > div {
+        background-color: #3c3c40;
+        border-radius: 16px;
+        border: 1px solid #505055;
+
+        padding: 12px 32px 28px 32px;
     }
 }
 
@@ -79,16 +91,7 @@ body {
     width: fit-content;
     border-radius: 16px;
     margin: 16px 0;
-    padding: 10px 16px;
-
-    & p {
-        margin: 0;
-    }
-
-    &:hover {
-        color: #2c2c2f;
-        background-color: #808085;
-    }
+    padding: 6px 12px 6px 16px;
 }
 
 .priority-container,
