@@ -1,0 +1,17 @@
+button {
+    color: #C2C2D3;
+    background-color: #505055;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+
+    &:hover {
+        color: #2C2C2F;
+        background-color: #808085;
+    }
+
+    &:active {
+        color: #C2C2D3;
+        background-color: #101015;
+    }
+}

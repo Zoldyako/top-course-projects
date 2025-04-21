@@ -3,33 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script defer type="module" src="index.js"></script>
+        <script defer src="index.js"></script>
         <title>Your To-Do App!</title>
     </head>
     <body>
         <div class="container">
+            <!-- SIDEBAR CONTAINER -->
             <div class="sidebar">
-                <div class="categories-container">
-                    <div class="categories">
+                <div class="sb-categories-container">
+                    <div class="sb-categories">
                         <p>All</p>
                         <p>Due Today</p>
                     </div>
 
-                    <div class="projects">
+                    <div class="sb-projects-list">
                         <p>Project one</p>
                         <p>Project two</p>
                     </div>
                 </div>
-                <div class="projects-actions">
+                <div class="sb-projects-actions">
                     <button class="new-project">New Project</button>
+                    <button class="default-projects">Default Projects</button>
                     <button class="clear-projects">Delete All</button>
                 </div>
             </div>
 
+            <!-- PROJECTS CONTAINER -->
             <div class="projects-container">
                 <div class="projects-section"></div>
             </div>
         </div>
+
+        <!-- NEW PROJECT DIALOG -->
         <dialog id="modal" class="new-project-btn">
             <form class="project-form" method="dialog">
                 <h4>New Project</h4>
@@ -70,6 +75,8 @@
             </form>
             <button id="close-modal">Close</button>
         </dialog>
+
+        <!-- NEW TASK DIALOG -->
         <dialog id="modal" class="new-task-btn">
             <form class="task-form" method="dialog">
                 <div>
@@ -77,8 +84,8 @@
                     <input type="text" id="task-desc" name="task-desc">
                 </div>
                 <input type="submit" id="submit-task">
-                <button id="close-modal">Close</button>
             </form>
+            <button id="close-modal">Close</button>
         </dialog>
     </body>
 </html>

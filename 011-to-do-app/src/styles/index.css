@@ -13,7 +13,7 @@ body {
     height: 100vh;
 }
 
-/* 
+/*
 // SIDEBAR
 */
 
@@ -23,14 +23,14 @@ body {
     justify-content: space-between;
 
     height: 100vhd;
-    width: minmax(200px, 250px);
+    max-width: 200px;
 
     background-color: rgb(40, 40, 45);
     border-right: 1px solid rgb(75, 75, 80);
     padding: 24px;
 }
 
-.projects-actions {
+.sb-projects-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -38,23 +38,26 @@ body {
 
     & button {
         height: 36px;
-        font-size: .9rem;
+        font-size: 1rem;
         font-weight: bold;
         padding: 0 8px;
         flex-grow: 1;
     }
 }
 
-/* 
+/*
 // PROJECTS
 */
 
 .projects-container {
     padding: 0 64px;
-    width: clamp(250px, 800px, 1000px);
+    width: 100%;
     overflow-y: auto;
 }
 
+.projects-section {
+    width: clamp(250px, 800px, 1000px);
+}
 
 .project {
 

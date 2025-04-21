@@ -1,30 +1,30 @@
 import './styles/normalize.css';
 import './styles/index.css';
-import { isStorageAvailable } from "./scripts/storageAvailable.js";
-import { setDefaultProject } from "./scripts/setDefaultProjects.js";
-import { setProject, getProject, getAllProjects } from "./scripts/projectStorage.js";
+import './styles/buttons.css';
+import { setDefaultProjects } from "./scripts/setDefaultProjects.js";
 import { renderProjects } from "./scripts/renderProjects.js";
 import { createNewProject } from "./scripts/createNewProject.js";
-isStorageAvailable();
-
-setDefaultProject();
-renderProjects(getAllProjects());
 
 
 const modal = document.querySelector('.new-project-btn');
 const submitProject = document.querySelector('#submit-project');
-const submitTask = document.querySelector('#submit-task');
 const newProjectBtn = document.querySelector('.new-project');
-const clearProjectsBtn = document.querySelector('.clear-projects');
+const deleteAll = document.querySelector('.clear-projects');
 const closeModalBtn = document.querySelector('#close-modal');
 const projectForm = document.querySelector('.project-form');
+const defaultProjectBtn = document.querySelector('.default-projects');
 
+
+defaultProjectBtn.addEventListener('click', () => {
+  setDefaultProjects();
+  renderProjects();
+});
 
 newProjectBtn.addEventListener('click', () => {
   modal.showModal();
 });
 
-clearProjectsBtn.addEventListener('click', () => {
+deleteAll.addEventListener('click', () => {
   localStorage.clear();
   renderProjects();
 });
@@ -39,3 +39,4 @@ closeModalBtn.addEventListener('click', () => {
   modal.close();
 });
 
+renderProjects();
