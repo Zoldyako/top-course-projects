@@ -47,7 +47,7 @@
                     <textarea
                         name="desc"
                         id="desc"
-                        rows="3"
+                        rows="10"
                         cols="25"
                     ></textarea>
                 </div>
@@ -80,9 +80,11 @@
                         <option value="finished">Finished</option>
                     </select>
                 </div>
-                <input type="submit" id="submit-project" />
+                <div>
+                    <input type="submit" id="submit-project" />
+                    <button id="close-modal-project">Close</button>
+                </div>
             </form>
-            <button id="close-modal-project">Close</button>
         </dialog>
 
         <!-- NEW TASK DIALOG -->
@@ -92,9 +94,11 @@
                     <label for="task-desc">Task:</label>
                     <input type="text" id="task-desc" name="task-desc" />
                 </div>
-                <input type="submit" id="submit-task" />
+                <div>
+                    <input type="submit" id="submit-task" />
+                    <button id="close-modal-task">Close</button>
+                </div>
             </form>
-            <button id="close-modal-task">Close</button>
         </dialog>
     </body>
 </html>

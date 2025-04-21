@@ -1,5 +1,6 @@
 import "./styles/normalize.css";
 import "./styles/index.css";
+import "./styles/modals.css";
 import "./styles/buttons.css";
 import { setDefaultProjects } from "./scripts/setDefaultProjects.js";
 import { renderProjects } from "./scripts/renderProjects.js";

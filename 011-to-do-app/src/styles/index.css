@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 :root {
     color: rgb(190, 190, 195);
     font-family: Inter, Helvetica, sans-serif, system-ui;
@@ -87,15 +89,6 @@ body {
         color: #2c2c2f;
         background-color: #808085;
     }
-}
-
-#modal {
-    max-width: 600px;
-}
-
-#modal::backdrop {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(4px);
 }
 
 .priority-container,
