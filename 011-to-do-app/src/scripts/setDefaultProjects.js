@@ -1,5 +1,6 @@
-  const project = {
-    id: 0,
+const projects = [
+  {
+    id: undefined,
     title: "Default Project",
     desc: "Desc for default project 1.",
     dueDate: "2025-03-30",
@@ -12,10 +13,9 @@
       "Make your to-do",
     ],
     visible: true
-  };
-
-  const project2 = {
-    id: 1,
+  },
+  {
+    id: undefined,
     title: "Default Project 2",
     desc: "Desc for default project 2.",
     dueDate: "2025-12-14",
@@ -26,10 +26,15 @@
       "Make your secong to-do"
     ],
     visible: true
-  };
+  }
+];
 
+export function setDefaultProjects() {
 
-export function setDefaultProject() {
-  localStorage.setItem(project.id, JSON.stringify(project));
-  localStorage.setItem(project2.id, JSON.stringify(project2));
+  projects.forEach(project => {
+    const localStorageLengh = localStorage.length;
+    project.id = localStorageLengh;
+    localStorage.setItem(project.id, JSON.stringify(project));
+
+  });
 }
