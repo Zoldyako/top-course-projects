@@ -1,17 +1,27 @@
 button {
-    color: #C2C2D3;
+    color: #c2c2d3;
     background-color: #505055;
     border: none;
     border-radius: 8px;
     padding: 8px 12px;
 
     &:hover {
-        color: #2C2C2F;
+        color: #2c2c2f;
         background-color: #808085;
     }
 
     &:active {
-        color: #C2C2D3;
+        color: #c2c2d3;
         background-color: #101015;
+    }
+}
+
+.delete-btn {
+    background-color: unset;
+    padding: 0;
+
+    &:hover {
+        color: red;
+        background-color: unset;
     }
 }

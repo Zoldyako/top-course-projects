@@ -1,5 +1,5 @@
 :root {
-    color: rgb(190, 190 ,195);
+    color: rgb(190, 190, 195);
     font-family: Inter, Helvetica, sans-serif, system-ui;
 }
 
@@ -60,30 +60,37 @@ body {
 }
 
 .project {
-
     & h4 {
-       font-size: 1.5rem;
-       padding: 12px 0;
-       border-bottom: 1px solid #707075;
+        font-size: 1.5rem;
+        padding: 12px 0;
+        border-bottom: 1px solid #707075;
     }
 }
 
 .task {
     display: flex;
+    align-items: center;
     gap: 12px;
 
+    background-color: #505055;
     color: rgb(216, 216, 216);
     width: fit-content;
     border-radius: 16px;
     margin: 16px 0;
+    padding: 10px 16px;
 
     & p {
         margin: 0;
     }
+
+    &:hover {
+        color: #2c2c2f;
+        background-color: #808085;
+    }
 }
 
 #modal {
-     max-width: 600px;
+    max-width: 600px;
 }
 
 #modal::backdrop {
@@ -95,7 +102,9 @@ body {
 .status-container {
     display: flex;
 
-    & p, label, input {
+    & p,
+    label,
+    input {
         margin: 0 4px 0 0;
     }
 }
