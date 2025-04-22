@@ -82,3 +82,24 @@ export function renderProjects() {
       : (projectsSection.innetText = "no projects found");
   }
 }
+
+export function renderSidebar() {
+  const sidebarProjectsDiv = document.querySelector(".sb-projects-list");
+  sidebarProjectsDiv.innerText = "";
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const project = JSON.parse(localStorage.getItem(i));
+    const div = document.createElement("div");
+    const button = document.createElement("button");
+
+    div.classList.add(`project-${project.id}`, i);
+    button.innerText = project.title;
+    button.addEventListener("click", () => {
+      const projectId = i;
+      renderOneProject(projectId);
+    });
+
+    div.appendChild(button);
+    sidebarProjectsDiv.appendChild(div);
+  }
+}

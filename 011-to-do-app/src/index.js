@@ -5,7 +5,11 @@ import "./styles/projectSection.css";
 import "./styles/modals.css";
 import "./styles/buttons.css";
 import { setDefaultProjects } from "./scripts/setDefaultProjects.js";
-import { renderOneProject, renderProjects } from "./scripts/renderProjects.js";
+import {
+  renderSidebar,
+  renderOneProject,
+  renderProjects,
+} from "./scripts/renderProjects.js";
 import { createNewProject } from "./scripts/createNewProject.js";
 
 const projectModal = document.querySelector(".new-project-btn");
@@ -18,13 +22,14 @@ const closeModalTaskBtn = document.querySelector("#close-modal-task");
 const projectForm = document.querySelector(".project-form");
 const taskForm = document.querySelector(".task-form");
 const defaultProjectBtn = document.querySelector(".default-projects");
-const sidebarProjectsDiv = document.querySelector(".sb-projects-list");
+
 const allProjectsDiv = document.querySelector(".all-projects");
 const dueProjectsDiv = document.querySelector(".due-projects");
 
 defaultProjectBtn.addEventListener("click", () => {
   setDefaultProjects();
   renderProjects();
+  renderSidebar();
 });
 
 newProjectBtn.addEventListener("click", () => {
@@ -34,12 +39,14 @@ newProjectBtn.addEventListener("click", () => {
 deleteAll.addEventListener("click", () => {
   localStorage.clear();
   renderProjects();
+  renderSidebar();
 });
 
 submitProject.addEventListener("click", () => {
   createNewProject();
   projectForm.reset();
   renderProjects();
+  renderSidebar();
 });
 
 closeModalProjectBtn.addEventListener("click", () => {
@@ -56,20 +63,5 @@ allProjectsDiv.addEventListener("click", () => {
   renderProjects();
 });
 
-for (let i = 0; i < localStorage.length; i++) {
-  const project = JSON.parse(localStorage.getItem(i));
-  const div = document.createElement("div");
-  const button = document.createElement("button");
-
-  div.classList.add(`project-${project.id}`, i);
-  button.innerText = project.title;
-  button.addEventListener("click", () => {
-    const projectId = i;
-    renderOneProject(projectId);
-  });
-
-  div.appendChild(button);
-  sidebarProjectsDiv.appendChild(div);
-}
-
+renderSidebar();
 renderProjects();
