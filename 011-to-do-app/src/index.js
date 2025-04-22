@@ -1,5 +1,7 @@
 import "./styles/normalize.css";
-import "./styles/index.css";
+import "./index.css";
+import "./styles/sidebar.css";
+import "./styles/projectSection.css";
 import "./styles/modals.css";
 import "./styles/buttons.css";
 import { setDefaultProjects } from "./scripts/setDefaultProjects.js";

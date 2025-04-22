@@ -23,3 +23,34 @@ input[type="submit"] {
     border-radius: 100%;
     padding: 4px 8px;
 }
+
+input[type="submit"] {
+    color: black;
+    background-color: #afafd6;
+
+    &:hover {
+        color: black;
+        background-color: #a8a8ff;
+    }
+
+    &:active {
+        color: #eae1e1;
+        background-color: #29293d;
+    }
+}
+
+#close-modal-project,
+#close-modal-task {
+    color: black;
+    background-color: #d9474f;
+
+    &:hover {
+        color: black;
+        background-color: #fc6a72;
+    }
+
+    &:active {
+        color: #eae1e1;
+        background-color: #3d1214;
+    }
+}
