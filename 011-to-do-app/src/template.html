@@ -1,105 +1,180 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script defer src="index.js"></script>
-        <title>Your To-Do App!</title>
-    </head>
-    <body>
-        <div class="container">
-            <!-- SIDEBAR CONTAINER -->
-            <div class="sidebar">
-                <div class="sb-categories-container">
-                    <div class="sb-categories">
-                        <button class="all-projects">All</button>
-                        <button class="due-projects">Due Today</button>
-                    </div>
-
-                    <div class="sb-projects-list"></div>
-                </div>
-                <div class="sb-projects-actions">
-                    <button class="new-project">New Project</button>
-                    <button class="default-projects">Default Projects</button>
-                    <button class="clear-projects">Delete All</button>
-                </div>
-            </div>
-
-            <!-- PROJECTS CONTAINER -->
-            <div class="projects-container">
-                <div class="projects-section"></div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="index.js"></script>
+    <title>Your To-Do App!</title>
+</head>
+<body>
+    <!-- SIDEBAR CONTAINER -->
+    <div class="sidebar-container">
+        <button>All</button>
+        <div class="sidebar-projects">
+            <button>Project 1</button>
+            <button>Project 1</button>
         </div>
-
-        <!-- NEW PROJECT DIALOG -->
-        <dialog id="modal" class="new-project-btn">
-            <form class="project-form" method="dialog">
-                <h4>New Project</h4>
-                <div>
-                    <label for="title">Project Title</label>
-                    <input type="text" name="title" id="title" />
+        <div class="project-actions">
+            <button class="delete-projects">Delete All</button>
+        </div>
+    </div>
+    
+    <!-- PROJECTS CONTAINER -->
+    <div class="projects-container">
+        <div class="projects">
+            <div class="project-container">
+                <h2 class="project-title">Lorem, ipsum.</h2>
+                <p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, cum?</p>
+                <div class="project-details">
+                    <div class="task-container">
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                    </div>
+                    <button>New Task</button>
                 </div>
-                <div>
-                    <label for="desc">Project description</label>
-                    <textarea
-                        name="desc"
-                        id="desc"
-                        rows="10"
-                        cols="25"
-                    ></textarea>
+                <button class="delete-project-btn">Delete Project</button>
+            </div>
+            <div class="project-container">
+                <h2 class="project-title">Lorem, ipsum.</h2>
+                <p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, cum?</p>
+                <div class="project-details">
+                    <div class="task-container">
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                        <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                                                    <div class="task">
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox">
+                                    <p class="task-desc">Lorem ipsum dolor sit.</p>
+                                </div>
+                                <p class="due-date">due date: 2025-04-09</p>
+                            </div>
+                            <button class="delete-task-btn"><img src="./assets/close.svg" alt="delete task button"></button>
+                        </div>
+                    </div>
+                    <button>New Task</button>
                 </div>
-                <div>
-                    <label for="date">Due date</label>
-                    <input type="date" name="date" id="date" />
-                </div>
-                <div class="priority-container">
-                    <label for="priority">Priority:</label>
-                    <select name="priority" id="priority">
-                        <option value="" disabled selected>
-                            Select a priority
-                        </option>
-                        <option value="unset">Unset</option>
-                        <option value="high">high</option>
-                        <option value="medium">medium</option>
-                        <option value="low">low</option>
-                    </select>
-                </div>
-                <div class="status-container">
-                    <label for="status">Status:</label>
-                    <select name="status" id="status">
-                        <option value="" disabled selected>
-                            Select a status
-                        </option>
-                        <option value="unset">Unset</option>
-                        <option value="toStart">To start</option>
-                        <option value="started">Started</option>
-                        <option value="paused">Paused</option>
-                        <option value="finished">Finished</option>
-                    </select>
-                </div>
-                <div>
-                    <button id="close-modal-project" class="close-form">
-                        Close
-                    </button>
-                    <input type="submit" id="submit-project" class="submit" />
-                </div>
-            </form>
-        </dialog>
-
-        <!-- NEW TASK DIALOG -->
-        <dialog id="modal" class="new-task-btn">
-            <form class="task-form" method="dialog">
-                <div>
-                    <label for="task-desc">Task:</label>
-                    <input type="text" id="task-desc" name="task-desc" />
-                </div>
-                <div>
-                    <button id="close-modal-task" class="close-form">
-                        Close
-                    </button>
-                    <input type="submit" id="submit-task" class="submit" />
-                </div>
-            </form>
-        </dialog>
-    </body>
+                <button class="delete-project-btn">Delete Project</button>
+            </div>
+        </div>  
+        <button class="new-project"><img src="./assets/add_circle.svg" alt="Create a new project button"></button>
+    </div>
+</body>
 </html>
