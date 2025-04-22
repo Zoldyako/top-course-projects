@@ -1,5 +1,6 @@
 import createNewTask from "./createNewTask";
 import deleteTask from "./deleteTask";
+const projectsSection = document.querySelector(".projects-section");
 
 function createProjectDiv(id, project) {
   project = JSON.parse(project);
@@ -61,8 +62,16 @@ function getTasks(project, tasks) {
   });
 }
 
+export function renderOneProject(id) {
+  projectsSection.innerText = "";
+
+  const project = localStorage.getItem(id);
+  const projectDiv = createProjectDiv(id, project);
+
+  projectsSection.appendChild(projectDiv);
+}
+
 export function renderProjects() {
-  const projectsSection = document.querySelector(".projects-section");
   projectsSection.innerText = "";
 
   for (let i = 0; i < localStorage.length; i++) {
