@@ -12,7 +12,7 @@ export function renderProject(projectDiv, project) {
 
     const projectContainer = document.createElement("div");
     const projectTitle = document.createElement("h2");
-    const projectDesc = document.createElement("p");
+    const projectDesc = document.createElement("h4");
     const tasksDiv = document.createElement("div");
 
     projectContainer.classList.add("project", project.id);
@@ -23,20 +23,24 @@ export function renderProject(projectDiv, project) {
     if (project.tasks.length > 0) {
         project.tasks.forEach(task => {
             console.log(task.desc);
-            const taskDiv = document.createElement("div");
-            const taskState = document.createElement("input");
-            const taskDesc = document.createElement("p");
-            const taskDate = document.createElement("p");
+            const taskDiv = document.createElement('div');
+            const taskIsFinished = document.createElement('input');
+            const taskDesc = document.createElement('p');
+            const taskDate = document.createElement('p');
+            const div = document.createElement('div')
 
-            taskState.type = "checkbox";
+            taskIsFinished.type = "checkbox";
             taskDesc.innerText = task.desc;
             taskDate.innerText = task.dueDate;
 
-            taskDiv.append(taskState, taskDesc, taskDate);
+            taskDiv.classList.add('task');
+            div.append(taskIsFinished, taskDesc)
+            taskDiv.append(div, taskDate);
             tasksDiv.appendChild(taskDiv);
         });
     }
 
+    tasksDiv.classList.add('tasks-container');
     projectContainer.append(projectTitle, projectDesc, tasksDiv);
     projectDiv.append(projectContainer);
 }
