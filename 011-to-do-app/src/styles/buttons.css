@@ -66,7 +66,7 @@ input[type="checkbox"] {
     width: 16px;
 }
 
-.new-project {
+.new-project-btn {
     background-color: #319ce4;
     position: absolute;
     bottom: 50px;

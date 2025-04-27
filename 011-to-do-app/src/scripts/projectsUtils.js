@@ -10,13 +10,15 @@ export function createTask(projectId, desc, dueDate ) {
     localStorage.setItem(projectId, JSON.stringify(project));
 }
 
-export function createProject(id, title, description) {
+export function createProject(title, description) {
+    const id = localStorage.length;
+
     const project = {
-        id: undefined,
+        id: id,
         title: title,
         desc: description,
         tasks: []
-    };
+    }; 
 
     localStorage.setItem(id, JSON.stringify(project));
 }

@@ -15,7 +15,7 @@
             <button>Project 1</button>
         </div>
         <div class="project-actions">
-            <button class="delet-projects">Delete all</button>
+            <button class="delete-projects">Delete all</button>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
     <div class="projects-container">
         <div class="projects">
         </div>
-        <button class="new-project"><img src="./assets/add_circle.svg" alt="Create a new project button"></button>
+        <button class="new-project-btn"><img src="./assets/add_circle.svg" alt="Create a new project button"></button>
     </div>
 
     <!-- NEW PROJECT DIALOG -->
@@ -44,39 +44,10 @@
                 ></textarea>
             </div>
             <div>
-                <label for="date">Due date</label>
-                <input type="date" name="date" id="date" />
-            </div>
-            <div class="priority-container">
-                <label for="priority">Priority:</label>
-                <select name="priority" id="priority">
-                    <option value="" disabled selected>
-                        Select a priority
-                    </option>
-                    <option value="unset">Unset</option>
-                    <option value="high">high</option>
-                    <option value="medium">medium</option>
-                    <option value="low">low</option>
-                </select>
-            </div>
-            <div class="status-container">
-                <label for="status">Status:</label>
-                <select name="status" id="status">
-                    <option value="" disabled selected>
-                        Select a status
-                    </option>
-                    <option value="unset">Unset</option>
-                    <option value="toStart">To start</option>
-                    <option value="started">Started</option>
-                    <option value="paused">Paused</option>
-                    <option value="finished">Finished</option>
-                </select>
-            </div>
-            <div>
                 <button id="close-modal-project" class="close-form">
                     Close
                 </button>
-                <input type="submit" id="submit-project" class="submit" />
+                <input type="submit" id="submit-project" class="submit-project submit" />
             </div>
         </form>
     </dialog>

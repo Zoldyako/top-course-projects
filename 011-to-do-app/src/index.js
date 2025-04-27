@@ -4,7 +4,7 @@ import "./styles/sidebar.css";
 import "./styles/projects.css";
 import "./styles/buttons.css";
 import { render, renderProject } from "./scripts/render.js";
-import { deletProjects, createTask, createDefaultProjects } from "./scripts/projectsUtils.js";
+import { deletProjects, createTask, createProject, createDefaultProjects } from "./scripts/projectsUtils.js";
 // createDefaultProjects();
 render();
 
@@ -18,8 +18,8 @@ newTaskBtns.forEach(button => {
         newTaskDialog.showModal();
 
         const submitTask = document.querySelector('.submit-task');
-        const form = document.querySelector('.task-form')
         submitTask.addEventListener('click', () => {
+            const form = document.querySelector('.task-form');
             const newTaskDesc = form.elements['task-desc'].value;
             const newTaskDate = form.elements['task-date'].value;
 
@@ -29,8 +29,25 @@ newTaskBtns.forEach(button => {
     });
 });
 
-const deletBtn = document.querySelector('.delet-projects');
-deletBtn.addEventListener('click', () => {
-    deletProjects();
+const newProjectBtn = document.querySelector('.new-project-btn');
+newProjectBtn.addEventListener('click', () => {
+    const newProjectDialog = document.querySelector('.new-project-form');
+    newProjectDialog.showModal();
+
+    const submitProject = document.querySelector('.submit-project');
+    submitProject.addEventListener('click', () => {
+        const form = document.querySelector('.project-form');
+        const projectTitle = form.elements['title'].value;
+        const projectDesc = form.elements['desc'].value;
+
+        createProject(projectTitle, projectDesc);
+        render();
+    });
+
+});
+
+const deleteBtn = document.querySelector('.delete-projects');
+deleteBtn.addEventListener('click', () => {
+    deleteProjects();
     render();
 });
