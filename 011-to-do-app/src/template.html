@@ -25,5 +25,80 @@
         </div>
         <button class="new-project"><img src="./assets/add_circle.svg" alt="Create a new project button"></button>
     </div>
+
+    <!-- NEW PROJECT DIALOG -->
+    <dialog id="modal" class="new-project-form">
+        <form class="project-form" method="dialog">
+            <h4>New Project</h4>
+            <div>
+                <label for="title">Project Title</label>
+                <input type="text" name="title" id="title" />
+            </div>
+            <div>
+                <label for="desc">Project description</label>
+                <textarea
+                    name="desc"
+                    id="desc"
+                    rows="10"
+                    cols="25"
+                ></textarea>
+            </div>
+            <div>
+                <label for="date">Due date</label>
+                <input type="date" name="date" id="date" />
+            </div>
+            <div class="priority-container">
+                <label for="priority">Priority:</label>
+                <select name="priority" id="priority">
+                    <option value="" disabled selected>
+                        Select a priority
+                    </option>
+                    <option value="unset">Unset</option>
+                    <option value="high">high</option>
+                    <option value="medium">medium</option>
+                    <option value="low">low</option>
+                </select>
+            </div>
+            <div class="status-container">
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="" disabled selected>
+                        Select a status
+                    </option>
+                    <option value="unset">Unset</option>
+                    <option value="toStart">To start</option>
+                    <option value="started">Started</option>
+                    <option value="paused">Paused</option>
+                    <option value="finished">Finished</option>
+                </select>
+            </div>
+            <div>
+                <button id="close-modal-project" class="close-form">
+                    Close
+                </button>
+                <input type="submit" id="submit-project" class="submit" />
+            </div>
+        </form>
+    </dialog>
+
+     <!-- NEW TASK DIALOG -->
+     <dialog id="modal" class="new-task-form">
+        <form class="task-form" method="dialog">
+            <div>
+                <label for="task-desc">Task:</label>
+                <input type="text" id="task-desc" name="task-desc" />
+            </div>
+            <div>
+                <label for="task-date">Due date:</label>
+                <input type="date" id="task-date" name="task-date">
+            </div>
+            <div>
+                <button id="close-modal-task" class="close-form">
+                    Close
+                </button>
+                <input type="submit" id="submit-task" class="submit-task submit" />
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>

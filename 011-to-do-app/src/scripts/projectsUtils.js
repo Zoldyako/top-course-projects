@@ -2,9 +2,10 @@ export function deletProjects() {
     localStorage.clear();
 }
 
-export function createTask(projectId, isFinished, desc, dueDate ) {
+export function createTask(projectId, desc, dueDate ) {
     const project = JSON.parse(localStorage.getItem(projectId));
-    
+    const isFinished = false;
+
     project.tasks.push({isFinished, desc, dueDate});
     localStorage.setItem(projectId, JSON.stringify(project));
 }
