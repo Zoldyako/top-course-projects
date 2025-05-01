@@ -1,3 +1,6 @@
+import { deleteTask } from "./projectsUtils";
+import { addNewTaskButton } from './eventListeners';
+
 export function render() {
     const projectDiv = document.querySelector('.projects');
     projectDiv.innerText = '';
@@ -7,6 +10,39 @@ export function render() {
         renderProject(projectDiv, project);
         
     }
+}
+
+function renderTask(project, tasksContainerDiv) {
+    project.tasks.forEach((task, index) => {
+        const taskDiv = document.createElement('div');
+        const infoDiv = document.createElement('div');
+        const descDiv = document.createElement('div');            
+        const taskIsFinished = document.createElement('input');
+        const taskDesc = document.createElement('p');
+        const taskDate = document.createElement('p');
+        const deleteTaskBtn = document.createElement('button');
+
+        deleteTaskBtn.classList.add('delete-task-btn', index);
+        taskDiv.classList.add('task');
+        infoDiv.classList.add('info-div');
+        taskDate.classList.add('due-date');
+        descDiv.classList.add('desc-div');
+
+        taskIsFinished.type = "checkbox";
+        taskDesc.innerText = task.desc;
+        taskDate.innerText = task.dueDate;
+        deleteTaskBtn.innerText = "X";
+
+        descDiv.append(taskIsFinished, taskDesc);
+        infoDiv.append(descDiv, taskDate);            
+        taskDiv.append(infoDiv, deleteTaskBtn);
+        tasksContainerDiv.appendChild(taskDiv);
+
+        deleteTaskBtn.addEventListener('click', () => {
+            deleteTask(project.id, index);
+            render();
+        });
+    });
 }
 
 export function renderProject(projectDiv, project) {
@@ -24,29 +60,17 @@ export function renderProject(projectDiv, project) {
     newTaskBtn.classList.add('new-task-btn');
     newTaskBtn.innerText = "New task";
     
-    const tasksDiv = document.createElement('div');
-    tasksDiv.classList.add('tasks-container');
+    const tasksContainerDiv = document.createElement('div');
+    tasksContainerDiv.classList.add('tasks-container');
 
     if (project.tasks.length > 0) {
-        project.tasks.forEach(task => {
-            const taskDiv = document.createElement('div');
-            const taskIsFinished = document.createElement('input');
-            const taskDesc = document.createElement('p');
-            const taskDate = document.createElement('p');
-            const div = document.createElement('div');
-
-            taskIsFinished.type = "checkbox";
-            taskDesc.innerText = task.desc;
-            taskDate.innerText = task.dueDate;
-
-            taskDiv.classList.add('task');
-            div.append(taskIsFinished, taskDesc);
-            taskDiv.append(div, taskDate);
-            tasksDiv.appendChild(taskDiv);
-        });
+        renderTask(project, tasksContainerDiv);
     }
 
-    tasksDiv.appendChild(newTaskBtn);
-    projectContainer.append(projectTitle, projectDesc, tasksDiv);
+    const newTaskBtns = document.querySelectorAll('.new-task-btn');
+    addNewTaskButton(newTaskBtns);
+
+    tasksContainerDiv.appendChild(newTaskBtn);
+    projectContainer.append(projectTitle, projectDesc, tasksContainerDiv);
     projectDiv.append(projectContainer);
 }

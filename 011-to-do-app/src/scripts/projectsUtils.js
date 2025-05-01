@@ -1,5 +1,13 @@
-export function deletProjects() {
+export function deleteProjects() {
     localStorage.clear();
+}
+
+export function deleteTask(projectId, taskId) {
+    let project = JSON.parse(localStorage.getItem(projectId));
+
+    project.tasks.splice(taskId, 1);
+    project = JSON.stringify(project);
+    localStorage.setItem(projectId, project);
 }
 
 export function createTask(projectId, desc, dueDate ) {

@@ -96,19 +96,19 @@ input[type="checkbox"] {
 .delete-task-btn {
     background-color: transparent;
     border: none;
+    border-radius: 100%;
     
     padding: 4px;
     width: 26px;
     height: 26px;
-    img {
-        width: 18px;
-    }
 
     &:hover {
-        background-color: #c03434;
+        background-color: #e45050;
+        color: whitesmoke;
     }
 
     &:active {
         background-color: #702525;
+        color: rgb(201, 201, 201);
     }
 }
