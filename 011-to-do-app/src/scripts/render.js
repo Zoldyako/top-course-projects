@@ -4,12 +4,24 @@ import { addNewTaskButton } from './eventListeners';
 export function render() {
     const projectDiv = document.querySelector('.projects');
     projectDiv.innerText = '';
+
+    const sidebarProjectsDiv = document.querySelector('.sidebar-projects');
+    sidebarProjectsDiv.innerText = '';
     
+    let projects = [];
     for (let i = 0; i < localStorage.length; i++) {
-        const project = JSON.parse(localStorage.getItem(i));
-        renderProject(projectDiv, project);
-        
+        projects.push(JSON.parse(localStorage.getItem(i)));
     }
+
+    projects.forEach(project => {
+        renderProject(projectDiv, project);
+        renderSidebar(projectDiv, sidebarProjectsDiv, project);
+    });
+
+    const allProjectsBtn = document.querySelector('.all-projects');
+    allProjectsBtn.addEventListener('click', () => {
+        render();
+    });
 }
 
 function renderTask(project, tasksContainerDiv) {
@@ -73,4 +85,16 @@ export function renderProject(projectDiv, project) {
     tasksContainerDiv.appendChild(newTaskBtn);
     projectContainer.append(projectTitle, projectDesc, tasksContainerDiv);
     projectDiv.append(projectContainer);
+}
+
+function renderSidebar(projectDiv, sidebarProjectsDiv, project) {
+    const projectBtn = document.createElement('button');
+    projectBtn.innerText = project.title;
+
+    projectBtn.addEventListener('click', () => {
+        projectDiv.innerText = '';
+        renderProject(projectDiv, project);
+    });
+
+    sidebarProjectsDiv.appendChild(projectBtn);
 }

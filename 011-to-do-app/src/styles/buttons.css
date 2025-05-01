@@ -51,7 +51,7 @@ button {
     }
 }
 
-.delete-projects {
+.delete-projects-btn {
     margin-top: 100%;
 }
 
@@ -65,33 +65,6 @@ input[type="checkbox"] {
     accent-color: rgb(0, 132, 255);
     width: 16px;
 }
-
-.new-project-btn {
-    background-color: #319ce4;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    
-    padding: 6px;
-    width: 64px;
-    height: 64px;
-
-    border: none;
-    border-radius: 100%;
-
-    img {
-        width: 52px;
-    }
-    
-    &:hover {
-        background-color: #73c1f5;
-    }
-
-    &:active {
-        background-color: #295a7a;
-    }
-}
-
 
 .delete-task-btn {
     background-color: transparent;

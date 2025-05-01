@@ -5,7 +5,6 @@ import "./styles/projects.css";
 import "./styles/buttons.css";
 import { render } from "./scripts/render.js";
 import { deleteProjects, createProject, createDefaultProjects } from "./scripts/projectsUtils.js";
-// createDefaultProjects();
 
 render();
 
@@ -26,8 +25,14 @@ newProjectBtn.addEventListener('click', () => {
 });
 
 
-const deleteBtn = document.querySelector('.delete-projects');
+const deleteBtn = document.querySelector('.delete-projects-btn');
 deleteBtn.addEventListener('click', () => {
     deleteProjects();
     render();
 });
+
+const defaultProjectsBtn = document.querySelector('.default-projects-btn');
+defaultProjectsBtn.addEventListener('click', () => {
+    createDefaultProjects();
+    render();
+})
