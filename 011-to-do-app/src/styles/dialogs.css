@@ -1,0 +1,107 @@
+#modal {
+    padding: 48px 72px;
+    width: 500px;
+    border: none;
+    border-radius: 16px;
+    box-sizing: border-box;
+
+    background-color: rgb(35, 35, 35);
+    color: whitesmoke;
+
+    & h4 { 
+        margin: 0 0 32px 0;
+        font-size: 18pt;
+    }
+}
+
+
+/* 
+*
+* PROJECT DIALOG
+*
+*/
+
+.project-form div {    
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    & label {
+        margin-bottom: 8px;
+        font-size: 12pt;
+    }
+}
+
+.project-form div:last-child {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+input, 
+textarea {
+    padding: 0 6px;
+    background-color: rgb(50, 50, 50);
+    color: whitesmoke;
+    border: 1px solid rgb(75, 75 ,75);
+    border-radius: 8px;
+
+    &:focus {
+        box-shadow: 0 0 0 2px rgb(40, 140, 255);
+        outline: 6px solid rgba(40, 140, 255, 0.5);
+    }
+}
+
+input[type="text"] {
+    height: 32px;
+}
+
+textarea {
+    padding: 8px 6px;
+}
+
+.close-form,
+.submit-project {
+    height: 36px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.close-form {
+    color: #d6d6d6;
+    background-color: rgb(100, 100, 100);
+    border: 1px solid rgb(130, 130, 130);
+
+    &:hover {
+        color: #2c2c2f;
+        background-color: #e7e7e7;
+    }
+
+    &:active {
+        color: #a7a7a7;
+        background-color: #686868;
+    }
+}
+
+.submit-project {
+    background-color: rgb(40, 140, 255);
+    border: 1px solid rgb(94, 169, 255);
+
+    &:hover {
+        color: #1f1f61;
+        background-color: rgb(88, 166, 255);
+    }
+
+    &:active {
+        color: #363688;
+        background-color: rgb(75, 116, 163);
+    }
+}
+
+/* 
+*
+* TASK DIALOG
+*
+*/

@@ -3,6 +3,7 @@ import "./index.css";
 import "./styles/sidebar.css";
 import "./styles/projects.css";
 import "./styles/buttons.css";
+import "./styles/dialogs.css";
 import { render } from "./scripts/render.js";
 import { deleteProjects, createProject, createDefaultProjects } from "./scripts/projectsUtils.js";
 
