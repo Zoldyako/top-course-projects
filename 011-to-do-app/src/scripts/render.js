@@ -1,100 +1,114 @@
-import { deleteTask } from "./projectsUtils";
-import { addNewTaskButton } from './eventListeners';
+import { 
+  getAllProjects, 
+  createProjectDiv, 
+  createDefaultProjects, 
+  deleteAllProjects, 
+  createProject 
+} from './project';
 
-export function render() {
-    const projectDiv = document.querySelector('.projects');
-    projectDiv.innerText = '';
+import { createTask } from './tasks';
+import { sidebarListProjects } from './sidebar';
 
-    const sidebarProjectsDiv = document.querySelector('.sidebar-projects');
-    sidebarProjectsDiv.innerText = '';
-    
-    let projects = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        projects.push(JSON.parse(localStorage.getItem(i)));
-    }
 
-    projects.forEach(project => {
-        renderProject(projectDiv, project);
-        renderSidebar(projectDiv, sidebarProjectsDiv, project);
-    });
+let projectId = null;
 
-    const allProjectsBtn = document.querySelector('.all-projects');
-    allProjectsBtn.addEventListener('click', () => {
-        render();
-    });
+function renderOnLoad() {
+  
+  // 
+  // --- SIDEBAR BUTTONS ---
+  // 
+
+  const allProjectsBtn = document.querySelector('.all-projects-btn');
+  const createNewProjectBtn = document.querySelector('.new-project-btn');
+  const createDefaultProjectsBtn = document.querySelector('.default-projects-btn');
+  const deleteAllProjectsBtn = document.querySelector('.delete-projects-btn');
+  
+  allProjectsBtn.addEventListener('click', () => {
+    render();
+  });
+
+  const projectModal = document.querySelector('.new-project-form');
+  createNewProjectBtn.addEventListener('click', () => {
+    projectModal.showModal();
+    render();
+  });
+
+  const submitProject = document.querySelector('.submit-project');
+  submitProject.addEventListener('click', () => {
+    const form = document.querySelector('.project-form');
+    const projectTitle = form.elements['title'].value;
+    const projectDesc = form.elements['title'].value;
+    createProject(projectTitle, projectDesc);
+    form.reset();
+    render();
+  });
+  
+
+  createDefaultProjectsBtn.addEventListener('click', () => {
+    createDefaultProjects();
+    render();
+  });
+
+  deleteAllProjectsBtn.addEventListener('click', () => {
+    deleteAllProjects();
+    render();
+  });
+  
+  //
+  // --- PROJECTS CONTAINER ---
+  // 
+
+  const submitTaskBtn = document.querySelector('.submit-task');
+  submitTaskBtn.addEventListener('click', () => {
+    const taskForm = document.querySelector('.task-form');
+    const taskDesc = taskForm.elements['task-desc'].value;
+    const taskDate = taskForm.elements['task-date'].value;
+    createTask(projectId, taskDesc, taskDate);
+    taskForm.reset();
+
+    render();
+  });
+
+  render();
 }
 
-function renderTask(project, tasksContainerDiv) {
-    project.tasks.forEach((task, index) => {
-        const taskDiv = document.createElement('div');
-        const infoDiv = document.createElement('div');
-        const descDiv = document.createElement('div');            
-        const taskIsFinished = document.createElement('input');
-        const taskDesc = document.createElement('p');
-        const taskDate = document.createElement('p');
-        const deleteTaskBtn = document.createElement('button');
+function render() {
+  const projectList = getAllProjects();
+  renderProjectDiv(projectList);
+  // 
+  // --- SIDEBAR BUTTONS ---
+  // 
 
-        deleteTaskBtn.classList.add('delete-task-btn', index);
-        taskDiv.classList.add('task');
-        infoDiv.classList.add('info-div');
-        taskDate.classList.add('due-date');
-        descDiv.classList.add('desc-div');
+  const sidebarProjectsDiv = document.querySelector('.sidebar-projects');
 
-        taskIsFinished.type = "checkbox";
-        taskDesc.innerText = task.desc;
-        taskDate.innerText = task.dueDate;
-        deleteTaskBtn.innerText = "X";
+  sidebarProjectsDiv.innerText = "";
+  sidebarListProjects(projectList);
 
-        descDiv.append(taskIsFinished, taskDesc);
-        infoDiv.append(descDiv, taskDate);            
-        taskDiv.append(infoDiv, deleteTaskBtn);
-        tasksContainerDiv.appendChild(taskDiv);
+  // 
+  // --- PROJECTS CONTAINER ---
+  // 
 
-        deleteTaskBtn.addEventListener('click', () => {
-            deleteTask(project.id, index);
-            render();
-        });
+  const newTaskBtns = document.querySelectorAll('.new-task-btn');
+  newTaskBtns.forEach(button => {
+    const taskModal = document.querySelector('.new-task-form');
+
+    button.addEventListener('click', (event) => {
+        const projectElement = event.target.closest('.project');
+        projectId = projectElement.classList.item(1);
+        taskModal.showModal();
     });
+  });
 }
 
-export function renderProject(projectDiv, project) {
-
-    const projectContainer = document.createElement('div');
-    projectContainer.classList.add("project", project.id);
-
-    const projectTitle = document.createElement('h2');
-    projectTitle.innerText = project.title;
-
-    const projectDesc = document.createElement('h4');
-    projectDesc.innerText = project.desc;
-
-    const newTaskBtn = document.createElement('button');
-    newTaskBtn.classList.add('new-task-btn');
-    newTaskBtn.innerText = "New task";
-    
-    const tasksContainerDiv = document.createElement('div');
-    tasksContainerDiv.classList.add('tasks-container');
-
-    if (project.tasks.length > 0) {
-        renderTask(project, tasksContainerDiv);
-    }
-
-    const newTaskBtns = document.querySelectorAll('.new-task-btn');
-    addNewTaskButton(newTaskBtns);
-
-    tasksContainerDiv.appendChild(newTaskBtn);
-    projectContainer.append(projectTitle, projectDesc, tasksContainerDiv);
-    projectDiv.append(projectContainer);
+function renderProjectDiv(projectList) {
+  
+  const projectContainerDiv = document.querySelector('.projects');
+  projectContainerDiv.innerText = "";
+ 
+  projectList.forEach(project => {
+    project ? createProjectDiv(project, projectContainerDiv) : null;
+  });
 }
 
-function renderSidebar(projectDiv, sidebarProjectsDiv, project) {
-    const projectBtn = document.createElement('button');
-    projectBtn.innerText = project.title;
 
-    projectBtn.addEventListener('click', () => {
-        projectDiv.innerText = '';
-        renderProject(projectDiv, project);
-    });
-
-    sidebarProjectsDiv.appendChild(projectBtn);
-}
+export { renderOnLoad, render }
