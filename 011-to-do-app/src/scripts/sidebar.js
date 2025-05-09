@@ -1,12 +1,15 @@
 import { createProjectDiv } from "./project";
+import { render } from "./render";
 
 function sidebarListProjects(projectList) {
     const sidebarProjectDiv = document.querySelector('.sidebar-projects');
 
     projectList.forEach(project => {
-        const projectBtn = document.createElement('button');
-        projectBtn.innerText = project.title;
+        const projectDiv = document.createElement('div');
+        projectDiv.classList.add('sb-project-div');
 
+        const projectBtn = document.createElement('button');
+        projectBtn.innerText = project.title;        
         projectBtn.addEventListener('click', () => {
             const projectContainerDiv = document.querySelector(".projects");
             projectContainerDiv.innerText = '';
@@ -22,12 +25,19 @@ function sidebarListProjects(projectList) {
                     const projectId = projectElement.classList.item(1);
                     taskModal.showModal();
                 });
-              });
+            });
         });
 
-        sidebarProjectDiv.appendChild(projectBtn);
-    });
+        const deleteProjectBtn = document.createElement('button');
+        deleteProjectBtn.innerText = 'X';
+        deleteProjectBtn.addEventListener('click', () => {
+            localStorage.removeItem(project.id);
+            render();
+        });
 
+        projectDiv.append(projectBtn, deleteProjectBtn);
+        sidebarProjectDiv.appendChild(projectDiv);
+    });
 }
 
 export { sidebarListProjects }

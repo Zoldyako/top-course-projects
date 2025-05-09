@@ -23,3 +23,16 @@
 .project-actions {
     margin-top: auto;
 }
+
+.sb-project-div {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    gap: 4px;
+}
+
+.sb-project-div button:nth-child(2):hover {
+    background-color: rgb(235, 138, 138);
+    color: rgb(134, 22, 22);
+
+    border-radius: 100%;
+}
