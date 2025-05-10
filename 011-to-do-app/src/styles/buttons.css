@@ -1,56 +1,87 @@
-button,
-input[type="submit"] {
-    color: #c2c2d3;
-    background-color: #505055;
-    border: none;
-    border-radius: 8px;
+button {
+    margin: 8px 0;
     padding: 8px 12px;
+
+    font-weight: bold;
+    color: #d6d6d6;
+    background-color: rgb(100, 100, 100);
+    border: 1px solid rgb(130, 130, 130);
+    border-radius: 8px;
 
     &:hover {
         color: #2c2c2f;
-        background-color: #808085;
+        background-color: #e7e7e7;
     }
 
     &:active {
-        color: #c2c2d3;
-        background-color: #101015;
+        color: #a7a7a7;
+        background-color: #686868;
     }
 }
 
-.delete-btn {
-    color: #2c2c2f;
-    background-color: #9898a2;
+/* 
+*
+* SIDEBAR BUTTONS
+*
+*/
+
+.sidebar-container button {
+    margin: 0;
+    
+    height: 36px;
+    width: 100%;
+    
+    text-align: start;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+
+
+    &:hover {
+        color: #2c2c2f;
+        background-color: #e7e7e7;
+    }
+
+    &:active {
+        color: #a7a7a7;
+        background-color: #686868;
+    }
+}
+
+.delete-projects-btn {
+    margin-top: 100%;
+}
+
+/* 
+*
+* PROJECTS BUTTONS
+*
+*/
+
+input[type="checkbox"] {
+    accent-color: rgb(0, 132, 255);
+    width: 16px;
+}
+
+.delete-task-btn {
+    background-color: transparent;
+    border: none;
     border-radius: 100%;
-    padding: 4px 8px;
-}
-
-input[type="submit"] {
-    color: black;
-    background-color: #afafd6;
+    
+    padding: 4px;
+    width: 26px;
+    height: 26px;
 
     &:hover {
-        color: black;
-        background-color: #a8a8ff;
+        background-color: #e45050;
+        color: whitesmoke;
     }
 
     &:active {
-        color: #eae1e1;
-        background-color: #29293d;
-    }
-}
-
-#close-modal-project,
-#close-modal-task {
-    color: black;
-    background-color: #d9474f;
-
-    &:hover {
-        color: black;
-        background-color: #fc6a72;
-    }
-
-    &:active {
-        color: #eae1e1;
-        background-color: #3d1214;
+        background-color: #702525;
+        color: rgb(201, 201, 201);
     }
 }
