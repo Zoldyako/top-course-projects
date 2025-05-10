@@ -41,6 +41,11 @@
     border-bottom: 1px solid rgb(100, 100, 100);
 }
 
+.task-status:checked + p {
+    text-decoration: line-through;
+    color: rgb(117, 117, 117);
+}
+
 .info-div > div {
     display: flex;
     gap: 8px;   

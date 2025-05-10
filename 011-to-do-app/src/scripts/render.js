@@ -89,6 +89,21 @@ function render() {
   // --- PROJECTS CONTAINER ---
   // 
 
+  const taskCheckBoxBtn = document.querySelectorAll('.task-status');
+  taskCheckBoxBtn.forEach(checkbox => {
+    checkbox.addEventListener('click', (event) => {
+      const projectElement = event.target.closest('.project');
+      const projectId = projectElement.classList.item(1);
+      const project = JSON.parse(localStorage.getItem(projectId));
+      const taskElement = event.target.closest('.task');
+      const taskId = taskElement.classList.item(1);
+      project.tasks[taskId].isFinished = !project.tasks[taskId].isFinished;
+
+      localStorage.setItem(projectId, JSON.stringify(project));
+
+    });
+  });
+
   const newTaskBtns = document.querySelectorAll('.new-task-btn');
   newTaskBtns.forEach(button => {
     const taskModal = document.querySelector('.new-task-form');

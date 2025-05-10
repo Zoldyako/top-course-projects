@@ -44,7 +44,7 @@ function createDefaultProjects() {
     desc: "A default project for you to take inspiration from!",
     tasks: [
       {
-        isFinished: false,
+        isFinished: true,
         desc: "Make your first own to-do",
         dueDate: "2025-04-30",
         priority: "high"

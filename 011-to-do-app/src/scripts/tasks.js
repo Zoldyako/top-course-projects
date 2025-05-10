@@ -39,14 +39,18 @@ function createTasksDiv(project, tasksContainerDiv) {
     const taskCheckbox = document.createElement('input');
     const taskDesc = document.createElement('p');
     const taskDate = document.createElement('p');
+    const taskPriority = document.createElement('p');
     const deleteTaskBtn = document.createElement('button');
     
     taskCheckbox.type = 'checkbox';
+    taskCheckbox.classList.add('task-status');
+    task.isFinished == true ? taskCheckbox.checked = true : null;
+    
     taskDesc.innerText = task.desc;
     taskDate.innerText = task.dueDate;
     deleteTaskBtn.innerText = 'X';
     
-    tasksDiv.classList.add('task');
+    tasksDiv.classList.add('task', index);
     taskInfoDiv.classList.add('info-div');
     taskDescDiv.classList.add('desc-div');
     taskDate.classList.add('due-date');
@@ -56,12 +60,10 @@ function createTasksDiv(project, tasksContainerDiv) {
     taskDescDiv.append(taskCheckbox, taskDesc);
 
     if (task.priority != "undefined") {
-      const taskPriority = document.createElement('p');
       taskPriority.innerText = `Priority: ${task.priority}`;
       taskPriority.classList.add('priority');
       taskInfoDiv.append(taskDescDiv, taskDate, taskPriority);
     }
-
    
     tasksDiv.append(taskInfoDiv, deleteTaskBtn);
     tasksContainerDiv.appendChild(tasksDiv);
