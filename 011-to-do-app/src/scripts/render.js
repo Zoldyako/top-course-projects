@@ -63,7 +63,8 @@ function renderOnLoad() {
     const taskForm = document.querySelector('.task-form');
     const taskDesc = taskForm.elements['task-desc'].value;
     const taskDate = taskForm.elements['task-date'].value;
-    createTask(projectId, taskDesc, taskDate);
+    const taskPriority = taskForm.elements['task-priority'].value;
+    createTask(projectId, taskDesc, taskDate, taskPriority);
     taskForm.reset();
 
     render();

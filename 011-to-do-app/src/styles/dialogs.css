@@ -42,22 +42,18 @@
 }
 
 input, 
-textarea {
+textarea,
+select {
     padding: 0 6px;
     background-color: rgb(50, 50, 50);
     color: whitesmoke;
     border: 1px solid rgb(75, 75 ,75);
     border-radius: 8px;
-
+    height: 32px;
     &:focus {
         box-shadow: 0 0 0 2px rgb(40, 140, 255);
         outline: 6px solid rgba(40, 140, 255, 0.5);
     }
-}
-
-input[type='text'],
-input[type='date'] {
-    height: 32px;
 }
 
 textarea {

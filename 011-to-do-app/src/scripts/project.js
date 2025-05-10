@@ -47,16 +47,19 @@ function createDefaultProjects() {
         isFinished: false,
         desc: "Make your first own to-do",
         dueDate: "2025-04-30",
+        priority: "high"
       },
       {
         isFinished: false,
         desc: "Make your second to-do",
         dueDate: "2025-04-30",
+        priority: "medium"
       },
       {
         isFinished: false,
         desc: "Make your own Project now",
         dueDate: "2025-04-30",
+        priority: "high"
       },
     ],
   };
@@ -70,11 +73,13 @@ function createDefaultProjects() {
         isFinished: false,
         desc: "You should have made your first to-do at this point",
         dueDate: "2025-05-10",
+        priority: "low"
       },
       {
         isFinished: false,
         desc: "Delete this project",
         dueDate: "2025-05-12",
+        priority: "low"
       },
     ],
   };

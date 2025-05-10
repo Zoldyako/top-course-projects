@@ -15,11 +15,11 @@ function getAllTasks(projectId) {
   return tasks;
 }
 
-function createTask(projectId, desc, dueDate) {
+function createTask(projectId, desc, dueDate, priority) {
   const project = getProject(projectId);
   const isFinished = false;
 
-  project.tasks.push({ isFinished, desc, dueDate });
+  project.tasks.push({ isFinished, desc, dueDate, priority });
   localStorage.setItem(projectId, JSON.stringify(project));
 }
 
@@ -40,20 +40,29 @@ function createTasksDiv(project, tasksContainerDiv) {
     const taskDesc = document.createElement('p');
     const taskDate = document.createElement('p');
     const deleteTaskBtn = document.createElement('button');
-
+    
     taskCheckbox.type = 'checkbox';
     taskDesc.innerText = task.desc;
     taskDate.innerText = task.dueDate;
     deleteTaskBtn.innerText = 'X';
-
+    
     tasksDiv.classList.add('task');
     taskInfoDiv.classList.add('info-div');
     taskDescDiv.classList.add('desc-div');
     taskDate.classList.add('due-date');
     deleteTaskBtn.classList.add('delete-task-btn', index);
-
-    taskDescDiv.append(taskCheckbox, taskDesc);
+    
     taskInfoDiv.append(taskDescDiv, taskDate);
+    taskDescDiv.append(taskCheckbox, taskDesc);
+
+    if (task.priority != "undefined") {
+      const taskPriority = document.createElement('p');
+      taskPriority.innerText = `Priority: ${task.priority}`;
+      taskPriority.classList.add('priority');
+      taskInfoDiv.append(taskDescDiv, taskDate, taskPriority);
+    }
+
+   
     tasksDiv.append(taskInfoDiv, deleteTaskBtn);
     tasksContainerDiv.appendChild(tasksDiv);
 
