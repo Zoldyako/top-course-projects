@@ -7,6 +7,40 @@ const dialogEditStatus = document.querySelector('.edit'); // Diálogo para edita
 const editForm = document.querySelector('#editForm'); // Formulário de edição de status
 let currentEditIndex = null; // Para armazenar o índice do livro sendo editado
 
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pagesNumber = document.querySelector('#pages');
+
+title.required = true;
+author.required = true;
+pagesNumber.required = true;
+
+title.addEventListener('input', () => {
+    if (title.value.length < 3)  {
+        title.setCustomValidity(`The title must be at least 3 characters long. Yours is ${title.value.length}`);
+    } else {
+        title.setCustomValidity('');
+    }
+    title.reportValidity();
+});
+
+
+author.addEventListener('input', () => {
+    if (author.value.length < 3) {
+        author.setCustomValidity(`The author name must be at least 3 characters long. Yours is ${author.value.length}`)
+    } else {
+        author.setCustomValidity('')
+    }
+    author.reportValidity();
+});
+
+
+pagesNumber.addEventListener('input', () => {
+    if (pagesNumber.value.length < 10) {
+        pagesNumber.setCustomValidity(`Pages must be at least 10. Currenty ${pagesNumber.value.length}` )
+    }
+});
+
 function Book(title, author, pages, status) {
     this.title  = title,
     this.author = author,
