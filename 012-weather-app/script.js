@@ -65,10 +65,10 @@ async function displayData({location, temp, feels, humidity, windspeed}) {
     const eWindspeed = document.createElement('p');
 
     eLocation.innerText = `Location: ${location}`;
-    eTemp.innerText = `Temperature: ${temp}`;
-    eFeelsLike.innerText = `Feels Like: ${feels}`;
-    eHumidity.innerText = `Humidity: ${humidity}`;
-    eWindspeed.innerText = `Wind Speed: ${windspeed}`;
+    eTemp.innerText = `Temperature: ${temp} Cº`;
+    eFeelsLike.innerText = `Feels Like: ${feels} Cº`;
+    eHumidity.innerText = `Humidity: ${humidity}%`;
+    eWindspeed.innerText = `Wind Speed: ${windspeed} Km/h`;
 
     infoContainer.append(eLocation, eTemp, eFeelsLike, eHumidity, eWindspeed);
     
