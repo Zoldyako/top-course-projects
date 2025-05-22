@@ -1,27 +1,11 @@
-console.log(`We're alive!`);
-
-/* 
-*
-* HOW TO CONSTRUCT THE URL FOR THE VISUAL CROSSING WEATHER API
-* 
-* Visual Crossing API uses the get method to fetch data,  so we need to pass an url. 
-*
-* First the base url:
-* - https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
-*
-* Then we have the location
-* - Using 'salvador bahia'
-* - https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/salvador
-*
-* We could use a date range, however I'll not, so next we pass
-*/
-
+// For the Vite server to get the .env variables
+// they must begin with VITE_ nothing else is needed
 const weather_key = import.meta.env.VITE_VC_API_KEY;
 const base_url = import.meta.env.VITE_VC_BASE_URL;
-let location = '';
-let unitGroup = ''; // us: Fº, miles | uk: Cº, miles | metric: Cº km | Base: Kelvin km
-let language = '';
-const contentType = '&contentType=json';
+
+const form = document.querySelector('form');
+const submitBtn = document.querySelector('.submit');
+const infoContainer = document.querySelector('.info-container');
 
 
 function buildWeatherUrl(base_url, weather_key, location = '', unitGroup = 'metric') {
@@ -38,8 +22,8 @@ function buildWeatherUrl(base_url, weather_key, location = '', unitGroup = 'metr
 }
 
 
-async function getWeather() {
-    const url = buildWeatherUrl(base_url, weather_key, 'águas de lindóia', 'metric');
+async function getWeather(location) {
+    const url = buildWeatherUrl(base_url, weather_key, location, 'metric');
     console.log(`Final url: ${url}`);
 
     try {
@@ -59,6 +43,7 @@ async function getWeather() {
     }
 }
 
+
 async function formatData(data) {
     const location = data.resolvedAddress;
     const temp = data.currentConditions.temp;
@@ -69,7 +54,38 @@ async function formatData(data) {
     return { location, temp, feels, humidity, windspeed }
 }
 
-const dataFetched = await getWeather();
-const data = await formatData(dataFetched);
 
-console.log(data);
+async function displayData({location, temp, feels, humidity, windspeed}) {
+    infoContainer.innerHTML = '';
+
+    const eLocation = document.createElement('h2');
+    const eTemp = document.createElement('p');
+    const eFeelsLike = document.createElement('p');
+    const eHumidity = document.createElement('p');
+    const eWindspeed = document.createElement('p');
+
+    eLocation.innerText = `Location: ${location}`;
+    eTemp.innerText = `Temperature: ${temp}`;
+    eFeelsLike.innerText = `Feels Like: ${feels}`;
+    eHumidity.innerText = `Humidity: ${humidity}`;
+    eWindspeed.innerText = `Wind Speed: ${windspeed}`;
+
+    infoContainer.append(eLocation, eTemp, eFeelsLike, eHumidity, eWindspeed);
+    
+}
+
+
+submitBtn.addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    let location = formData.get('location');
+    
+    const dataFetched = await getWeather(location);
+    const data = await formatData(dataFetched);
+
+    displayData(data);
+    console.log(data);
+});
+
+
