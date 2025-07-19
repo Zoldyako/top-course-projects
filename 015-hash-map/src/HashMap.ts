@@ -34,10 +34,24 @@ export default function HashMap() {
         const index: number = hash(key);
         const bucket = buckets[index];
 
-        return bucket;
+        for (const entry of bucket) {
+            if (entry[0] === key) return entry 
+        }
+
+        return "Nothing was found";
     }
-    
-    const has = (key: string) => {}
+
+    const has = (key: string) => {
+        const index: number = hash(key);
+        const bucket: Bucket = buckets[index];
+        
+        for (const [k, v] of bucket) {
+            if (k === key) return true;
+        }
+
+        return false;
+    }
+
     const remove = (key: string) => {}
     const size = () => {}
     const clear = () => {}
