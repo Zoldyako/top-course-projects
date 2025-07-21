@@ -33,7 +33,12 @@ export default function HashMap() {
         return entry === false ? false : true;
     }
 
-    const remove = (key: string) => {}
+    const remove = (key: string) => {
+        const index: number = hash(key);
+        const bucket: Bucket = buckets[index];
+        return bucket.length !== 0 ? bucket.pop() : 'No item to be removed found';
+    }
+
     const size = () => {}
     const clear = () => {}
     const keys = () => {}
