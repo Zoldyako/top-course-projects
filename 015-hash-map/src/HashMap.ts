@@ -44,7 +44,14 @@ export default function HashMap() {
         return bucket.length !== 0 ? bucket.pop() : 'No item to be removed found';
     }
 
-    const size = () => {}
+    const length = () => {
+        let totalLength: number = 0;
+        buckets.forEach((entry) => { 
+            if (entry.length > 0) totalLength++;
+        });
+
+        return totalLength;
+    }
 
     const clear = () => {
         capacity = 16;
@@ -85,5 +92,5 @@ export default function HashMap() {
         return bucket.findIndex(entry => entry[0] === key);
     }
 
-    return { hash, set, get, getAll, has, remove, size, clear, keys, values, entries }
+    return { hash, set, get, getAll, has, remove, length, clear, keys, values, entries }
 }

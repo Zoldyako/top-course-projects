@@ -21,3 +21,5 @@ console.log(`Getting all entries: ${list.getAll()}`);
 console.log('Cleaning...');
 list.clear()
 console.log(`Getting all entries: ${list.getAll()}`);
+
+console.log(`\nThe bucket list length is... ${list.length()}`);
