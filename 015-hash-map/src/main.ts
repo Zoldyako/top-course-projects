@@ -17,4 +17,7 @@ console.log(`\nDoes it has 'José': ${list.has('José')} | 'Zoldyako': '${list.h
 console.log(`\nRemoving 'ABC': ${list.remove('ABC')}`);
 console.log(`Has 'ABC': ${list.has('ABC')}`);
 
-list.clear();
+console.log(`Getting all entries: ${list.getAll()}`);
+console.log('Cleaning...');
+list.clear()
+console.log(`Getting all entries: ${list.getAll()}`);
