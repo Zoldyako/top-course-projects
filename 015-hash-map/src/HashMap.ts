@@ -18,38 +18,19 @@ export default function HashMap() {
 
     const set = (key: string, value: string) => {
         const index: number = hash(key);
-        
-        if (index < 0 || index >= buckets.length) {
-            throw new Error("Trying to access index out of bounds");
-        }
-        
-        let bucket = buckets[index];
-        const foundEntry:number = bucket.findIndex(entry => { entry[0] ===key });
-
-        foundEntry !== -1 ? bucket[foundEntry][1] = value : bucket.push([key, value]);
-        return;
+        const bucket: Bucket = buckets[index];
+        const entryIndex: number = findEntryIndex(key);
+        return entryIndex !== -1 ? bucket[entryIndex][1] = value : bucket.push([key, value]);
     }
 
     const get = (key: string) => {
-        const index: number = hash(key);
-        const bucket = buckets[index];
-
-        for (const entry of bucket) {
-            if (entry[0] === key) return entry 
-        }
-
-        return "Nothing was found";
+        const entry = findEntry(key);
+        return entry === false ? 'No entry found' : entry;
     }
 
     const has = (key: string) => {
-        const index: number = hash(key);
-        const bucket: Bucket = buckets[index];
-        
-        for (const [k, v] of bucket) {
-            if (k === key) return true;
-        }
-
-        return false;
+        const entry = findEntry(key);
+        return entry === false ? false : true;
     }
 
     const remove = (key: string) => {}
@@ -58,6 +39,35 @@ export default function HashMap() {
     const keys = () => {}
     const values = () => {}
     const entries = () => {}
+
+    const findEntry = (key: string) => {
+        const index = hash(key);
+        
+        if (index < 0 || index >= buckets.length) {
+            throw new Error("Trying to access index out of bounds");
+        }
+        
+        const bucket: Bucket = buckets[index];
+
+        if (bucket.length === 0) {
+            return false;
+        }
+        
+        if (bucket.length === 1) { 
+            return bucket; 
+        }
+
+        for (const entry of bucket) {
+            if (entry[0] === key) { return entry }
+            else { return false }
+        }
+    }
+
+    const findEntryIndex = (key: string) => {
+        const index = hash(key);
+        const bucket: Bucket = buckets[index];
+        return bucket.findIndex(entry => entry[0] === key);
+    }
 
     return { hash, set, get, has, remove, size, clear, keys, values, entries }
 }
