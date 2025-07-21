@@ -40,7 +40,13 @@ export default function HashMap() {
     }
 
     const size = () => {}
-    const clear = () => {}
+    
+    const clear = () => {
+        capacity = 16;
+        buckets = Array.from({ length: capacity}, () => []);
+        return;
+    }
+
     const keys = () => {}
     const values = () => {}
     const entries = () => {}
