@@ -60,7 +60,14 @@ export default function HashMap() {
     }
 
     const keys = () => {
-        const allKeys = buckets.find(entry => entry[0]);
+        let allKeys = [];
+
+        for (const bucket of buckets) {
+            for (const entry of bucket) {
+                if (entry[0] !== undefined) allKeys.push(entry[0]);
+            }
+        }
+
         return allKeys;
     }
 
