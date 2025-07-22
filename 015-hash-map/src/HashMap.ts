@@ -27,11 +27,6 @@ export default function HashMap() {
         const entry = findEntry(key);
         return entry === false ? 'No entry found' : entry;
     }
-    
-    const getAll = () => {
-        const allEntries = buckets.filter(entry => entry.length > 0 );
-        return allEntries; 
-    }
 
     const has = (key: string) => {
         const entry = findEntry(key);
@@ -83,7 +78,10 @@ export default function HashMap() {
         return allValues;
     }
 
-    const entries = () => {}
+    const entries = () => {
+        const allEntries = buckets.filter(entry => entry.length > 0);
+        return allEntries; 
+    }
 
     const findEntry = (key: string) => {
         const index = hash(key);
@@ -114,5 +112,5 @@ export default function HashMap() {
         return bucket.findIndex(entry => entry[0] === key);
     }
 
-    return { hash, set, get, getAll, has, remove, length, clear, keys, values, entries }
+    return { hash, set, get, has, remove, length, clear, keys, values, entries }
 }

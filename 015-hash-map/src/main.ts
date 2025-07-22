@@ -17,7 +17,7 @@ console.log(`\nDoes it has 'José': ${list.has('José')} | 'Zoldyako': '${list.h
 console.log(`\nRemoving 'ABC': ${list.remove('ABC')}`);
 console.log(`Has 'ABC': ${list.has('ABC')}`);
 
-console.log(`Getting all entries: ${list.getAll()}`);
+console.log(`Getting all entries: ${list.entries()}`);
 
 console.log(`\nThe bucket list length is... ${list.length()}`);
 
@@ -26,4 +26,4 @@ console.log(`Getting all values: ${list.values()}`)
 
 console.log('Cleaning...');
 list.clear()
-console.log(`Getting all entries: ${list.getAll()}`);
+console.log(`Getting all entries: ${list.entries()}`);
