@@ -7,8 +7,8 @@ export default function HashMap() {
     
     const hash = (key: string) => {
         let hashCode: number = 0;
-
         const primeNumber: number = 31;
+
         for(let i = 0; i < key.length; i++) {
             hashCode = primeNumber * hashCode + key.charCodeAt(i);
         } 
@@ -17,6 +17,11 @@ export default function HashMap() {
     }
 
     const set = (key: string, value: string) => {
+        const currentSize = length();
+        if (currentSize / capacity >= loadFactor) {
+            resize();
+        }
+
         const index: number = hash(key);
         const bucket: Bucket = buckets[index];
         const entryIndex: number = findEntryIndex(key);
@@ -49,7 +54,6 @@ export default function HashMap() {
     }
 
     const clear = () => {
-        capacity = 16;
         buckets = Array.from({ length: capacity}, () => []);
         return;
     }
@@ -112,5 +116,20 @@ export default function HashMap() {
         return bucket.findIndex(entry => entry[0] === key);
     }
 
-    return { hash, set, get, has, remove, length, clear, keys, values, entries }
+    const resize = () => {
+        const newCapacity = capacity * 2;
+        const newBuckets: Bucket[] = Array.from({ length: newCapacity }, () => []);
+        
+        for (const bucket of buckets) {
+            for (const [key, value] of bucket) {
+                const newIndex = hash(key) % newCapacity;
+                newBuckets[newIndex].push([key, value]);
+            }
+        }
+
+        capacity = newCapacity;
+        buckets = newBuckets;
+    }
+
+    return { hash, set, get, has, remove, length, clear, keys, values, entries, resize }
 }
