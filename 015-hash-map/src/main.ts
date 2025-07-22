@@ -18,8 +18,11 @@ console.log(`\nRemoving 'ABC': ${list.remove('ABC')}`);
 console.log(`Has 'ABC': ${list.has('ABC')}`);
 
 console.log(`Getting all entries: ${list.getAll()}`);
+
+console.log(`\nThe bucket list length is... ${list.length()}`);
+
+console.log(`All keys: ${list.keys()}`)
+
 console.log('Cleaning...');
 list.clear()
 console.log(`Getting all entries: ${list.getAll()}`);
-
-console.log(`\nThe bucket list length is... ${list.length()}`);

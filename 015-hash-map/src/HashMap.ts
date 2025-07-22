@@ -59,7 +59,11 @@ export default function HashMap() {
         return;
     }
 
-    const keys = () => {}
+    const keys = () => {
+        const allKeys = buckets.find(entry => entry[0]);
+        return allKeys;
+    }
+
     const values = () => {}
     const entries = () => {}
 
