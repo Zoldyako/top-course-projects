@@ -22,6 +22,7 @@ console.log(`Getting all entries: ${list.getAll()}`);
 console.log(`\nThe bucket list length is... ${list.length()}`);
 
 console.log(`Getting all keys: ${list.keys()}`);
+console.log(`Getting all values: ${list.values()}`)
 
 console.log('Cleaning...');
 list.clear()

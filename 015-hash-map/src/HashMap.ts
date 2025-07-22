@@ -71,7 +71,18 @@ export default function HashMap() {
         return allKeys;
     }
 
-    const values = () => {}
+    const values = () => {
+        let allValues = [];
+
+        for (const bucket of buckets) {
+            for (const entry of bucket) {
+                if (entry[0] !== undefined) allValues.push(entry[1]);
+            }
+        }
+
+        return allValues;
+    }
+
     const entries = () => {}
 
     const findEntry = (key: string) => {
